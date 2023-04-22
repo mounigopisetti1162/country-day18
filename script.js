@@ -9,26 +9,32 @@ fetch(url).then((res)=>res.json()).then((data)=>{
 data.forEach((ele)=>
 {
 let div=creat("div")
-div.className="col-sm-6 col-md-4 col-lg-4 col-xl-4"
+div.className=".col-sm-6.col-md-6.col-lg-4.col-xl-4 cols"
 let filename=temp(ele)
 div.innerHTML=filename
 row.appendChild(div)
 })
 })
 let temp=(country)=>{
-    let tem=`<div class="card h-100">
+    let tem=`<div class="card h-70  card">
     <div class="card-header">${country.name.common}</div>
     <div class="card-body">
+    <div class="image">
     <img class="flag" src="${country.flags.png}" width="300px" height="300px"
+    </div>
+    </div>
     <div class=align>
     <p class="text"> <b> Capital:</b>${country.capital}</p>
     <p class="text"> <b> Region:</b>${country.region}</p>
     <p class="text"> <b> Population:</b>${country.population}</p>
-    <br></div>
-    <button class="btn btn-primary" onclick="weather([${country.latlng[0]},${country.latlng[1]}],'${country.name.common}')">weather</button>
-    <p id="load${country.name.common}"></p>
+   </div>
+   <div class="btns">
+   <button class="btn btn-primary btn" onclick="weather([${country.latlng[0]},${country.latlng[1]}],'${country.name.common}')">weather</button>
     </div>
-    </div><br>
+   </div>
+   
+    </div>
+   
     `;
     return tem
 }
